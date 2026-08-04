@@ -74,19 +74,16 @@ with col1:
         help="Typical range: 60 - 180 mg/L"
     )
 
-    solids = st.number_input(
-        "Solids",
-        value=20000.0,
-        help="Total dissolved solids (mg/L)"
-    )
-
-with col2:
-
-    chloramines = st.number_input(
+     chloramines = st.number_input(
         "Chloramines",
         value=7.0,
         help="Disinfectant used in water treatment"
     )
+  
+
+with col2:
+
+   
 
     sulfate = st.number_input(
         "Sulfate",
@@ -94,31 +91,12 @@ with col2:
         help="Recommended level: below 250 mg/L"
     )
 
-    conductivity = st.number_input(
-        "Conductivity",
-        value=425.0,
-        help="Measures water's electrical conductivity"
-    )
-
-with col3:
-
-    organic_carbon = st.number_input(
-        "Organic Carbon",
-        value=14.0,
-        help="Organic carbon concentration"
-    )
-
-    trihalomethanes = st.number_input(
-        "Trihalomethanes",
-        value=66.0,
-        help="By-products formed during water disinfection"
-    )
-
-    turbidity = st.number_input(
+     turbidity = st.number_input(
         "Turbidity",
         value=4.0,
         help="Recommended value: below 5 NTU"
     )
+
 
 st.markdown("---")
 
@@ -144,12 +122,8 @@ if st.button("🔍 Predict Water Quality", use_container_width=True):
     prediction, probability = predict_water(
         ph,
         hardness,
-        solids,
         chloramines,
         sulfate,
-        conductivity,
-        organic_carbon,
-        trihalomethanes,
         turbidity
     )
 
@@ -189,23 +163,15 @@ if st.button("🔍 Predict Water Quality", use_container_width=True):
         "Parameter": [
             "pH",
             "Hardness",
-            "Solids",
             "Chloramines",
             "Sulfate",
-            "Conductivity",
-            "Organic Carbon",
-            "Trihalomethanes",
             "Turbidity"
         ],
         "Value": [
             ph,
             hardness,
-            solids,
             chloramines,
             sulfate,
-            conductivity,
-            organic_carbon,
-            trihalomethanes,
             turbidity
         ]
     })
@@ -220,12 +186,8 @@ st.subheader("Input Parameters")
 st.write("""
 - pH
 - Hardness
-- Solids
 - Chloramines
 - Sulfate
-- Conductivity
-- Organic Carbon
-- Trihalomethanes
 - Turbidity
 """)
 
