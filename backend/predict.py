@@ -15,12 +15,8 @@ model = joblib.load(MODEL_PATH)
 def predict_water(
     ph,
     hardness,
-    solids,
     chloramines,
     sulfate,
-    conductivity,
-    organic_carbon,
-    trihalomethanes,
     turbidity
 ):
 
@@ -28,22 +24,14 @@ def predict_water(
     data = pd.DataFrame([[
         ph,
         hardness,
-        solids,
         chloramines,
         sulfate,
-        conductivity,
-        organic_carbon,
-        trihalomethanes,
         turbidity
     ]], columns=[
         "ph",
         "Hardness",
-        "Solids",
         "Chloramines",
         "Sulfate",
-        "Conductivity",
-        "Organic_carbon",
-        "Trihalomethanes",
         "Turbidity"
     ])
 
